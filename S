@@ -1,0 +1,47 @@
+testCases = int(input())
+
+for tests in range(testCases):
+    n, m, k = list(map(int, input().split()))
+    
+    aStr = list(input())
+    bStr = list(input())
+    cStr = []
+    
+    aStr.sort()
+    bStr.sort()
+    
+    aPtr = 0
+    bPtr = 0
+    
+    while aPtr < n and bPtr < m:
+        aK = 0
+        bK = 0
+        
+        cStr.append(aStr[aPtr])
+        aPtr += 1
+        aK += 1
+        
+        while aPtr < n and aStr[aPtr] < bStr[bPtr] and aK < k:
+            cStr.append(aStr[aPtr])
+            aPtr += 1
+            aK += 1
+            
+        if aPtr > n:
+            break
+        
+        
+        cStr.append(bStr[bPtr])
+        aPtr += 1
+        bK += 1
+        
+        while bPtr < m and aStr[aPtr] > bStr[bPtr] and bK < k:
+            cStr.append(bStr[bPtr])
+            bPtr += 1
+            bK += 1
+
+    print("".join(cStr))
+        
+            
+            
+            
+            
